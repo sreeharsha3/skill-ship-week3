@@ -191,6 +191,30 @@ int detectloop(Node *head) {
     
 }
 
+4. length of loop in linked list code
+
+int countNodesinLoop(struct Node *head)
+{
+     // Code here
+     Node* small=head;
+     Node* big=head;
+     while(small && big && big->next){
+         small=small->next;
+         big=big->next->next;
+         if(small==big){
+             int res = 1;  
+             Node *temp = small;  
+             while (temp->next != small)  
+             {  
+                 res++;  
+                 temp = temp->next;  
+             }  
+             return res; 
+         }
+     }
+     return 0;
+}
+
 
 
 
