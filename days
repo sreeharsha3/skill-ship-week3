@@ -215,6 +215,27 @@ int countNodesinLoop(struct Node *head)
      return 0;
 }
 
+5. Nth node from end of linked list code.
+
+int getNthFromLast(Node *head, int n)
+{
+       // Your code here
+       Node* temp=head;Node* temp1=head;
+       int cnt=1;
+       while(temp->next!=0){
+           temp=temp->next;
+           cnt=cnt+1;
+       }
+       if(cnt>=n){
+           for(int i=1;i<=(cnt-n);i++){
+               temp1=temp1->next;
+           }
+           return temp1->data;
+       }
+       else{
+           return -1;
+       }
+}
 
 
 
