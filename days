@@ -302,4 +302,23 @@ int main()
 	return 0;
 }
 
+2. reverse linked list code:
+
+Node* reverseList(Node *head)
+{
+  // Your code here
+  Node* temp=head;Node* nxt;
+  Node*prev=NULL;
+  while(temp!=NULL){
+      nxt=temp->next;
+      temp->next=prev;
+      prev=temp;
+      temp=nxt;
+  }
+  head=prev;
+  return head;
+}
+
+
+
 
