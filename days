@@ -1,4 +1,53 @@
 
+
+bonus problem:1 code
+
+class Solution {
+public:
+    ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
+        ListNode* rl1=reverseList(l1);
+        ListNode* rl2=reverseList(l2);
+        long long num1=num(rl1);
+        long long num2=num(rl2);
+        long long num3=num1+num2;
+        ListNode* head=NULL,*tail= NULL;
+        int m=num3%10;
+        head=new ListNode(m);
+        tail=head;
+        num3=num3/10;
+        while(num3>0){
+            int l=num3%10;
+            tail->next=new ListNode(l);
+            tail=tail->next;
+            num3=num3/10;
+        }
+        return head;
+    }
+    ListNode* reverseList(ListNode *head)
+    {
+        ListNode* temp=head;ListNode* nxt;
+        ListNode*prev=NULL;
+        while(temp!=NULL){
+            nxt=temp->next;
+            temp->next=prev;
+            prev=temp;
+            temp=nxt;
+        }
+        head=prev;
+        return head;
+    }
+    long long num(ListNode* rl){
+        ListNode* temp=rl;
+        long long res=0;
+        while(temp!=NULL){
+            int k=temp->val;
+            res=res*10+k;
+            temp=temp->next;
+        }
+        return res;
+    }
+    
+};
 day-1
 
 1.gcd and lcm code
@@ -319,6 +368,34 @@ Node* reverseList(Node *head)
   return head;
 }
 
+4. duplicate removal linked list code
+
+Node * removeDuplicates( Node *head) 
+{
+ // your code goes here
+ struct Node*p=head;
+    Node*temp=NULL;
+    Node*q=NULL;
+    while(p!=NULL)
+    {
+        temp=p;
+        q=temp->next;
+        while(temp->next!=NULL)
+        {
+            if(p->data==temp->next->data)
+            {
+                temp->next=temp->next->next;
+            }
+            else
+            {
+                temp=temp->next;
+            }
+        }
+        p=p->next;
+       
+    }
+    return head;
+}
 
 
 
