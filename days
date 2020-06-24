@@ -48,6 +48,45 @@ public:
     }
     
 };
+
+bonus prob2 code:
+
+class Solution {
+public:
+    ListNode* rotateRight(ListNode* head, int k) {
+        ListNode* temp=head;
+        if(head==NULL){
+            return temp;
+        }
+        int cnt=0;
+        ListNode* t=head;
+        while(t!=NULL){
+            cnt=cnt+1;
+            t=t->next;
+        }
+        k=k%cnt;
+        if(k==cnt){
+            return temp;
+        }
+        int i=0;
+        ListNode* temp1=head;
+        ListNode* temp2=head;
+        while(i<k && temp1!=NULL){
+            temp1=temp1->next;
+            i=i+1;
+        }
+        while(temp1!=NULL && temp1->next!=NULL){
+            temp1=temp1->next;
+            temp2=temp2->next;
+        }
+        temp1->next=head;
+        head=temp2->next;
+        temp2->next=NULL;
+        return head;
+        
+    }
+};
+
 day-1
 
 1.gcd and lcm code
