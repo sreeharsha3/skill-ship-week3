@@ -494,5 +494,32 @@ Node* del(Node* head){
     return head;
 }
 
+day 5
+
+prob 1:
+
+bool isCircular(Node *head)
+{
+   // Your code here
+   Node* temp=head;
+   Node* temp1=temp->next;
+   if(temp==NULL || temp->next==NULL){
+       return 0;
+   }
+   while(temp1!=head)
+    {
+        temp1=temp1->next;
+        if(temp1==NULL)
+        {
+            return 0;
+            break;
+        }
+    }
+    if(temp1==head)
+    {
+        return 1;
+    }
+}
+
 
 
