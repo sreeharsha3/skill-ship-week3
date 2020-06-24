@@ -494,6 +494,43 @@ Node* del(Node* head){
     return head;
 }
 
+6. y shape intersection code:
+
+int intersectPoint(Node* head1, Node* head2)
+{
+    // Your Code Here
+    Node*temp=NULL;
+    temp=head1;
+    while(temp!=NULL)
+    {
+        if(temp->data==0)
+        {
+            temp->data=-1001;
+            temp=temp->next;
+        }
+        else
+        {
+        temp->data=-1*(temp->data);
+        temp=temp->next;
+        }
+    }
+    temp=head2;
+    while(temp!=NULL)
+    {
+       if(temp->data<0 && temp->data!=-1001)
+       {
+           return -temp->data;
+       }
+       if(temp->data==-1001)
+       {
+           return 0;
+       }
+       temp=temp->next;
+    }
+    return -1;
+}
+
+
 day 5
 
 prob 1:
